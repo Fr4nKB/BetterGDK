@@ -1,6 +1,6 @@
 # BetterGDK
 ## Disclaimer
-This project is a **modified version of Glyph Developer Kit by Nothing-Developer-Programme**. The original project can be found [here](https://github.com/Nothing-Developer-Programme/Glyph-Developer-Kit/). This modified version is distributed under the [Your License] license. The original author is not responsible for any changes made in this version.
+This project is a **modified version of Glyph Developer Kit by Nothing-Developer-Programme**. The original project can be found [here](https://github.com/Nothing-Developer-Programme/Glyph-Developer-Kit/). The original author is not responsible for any changes made in this version.
 
 ## Why is it better?
 Numerous bugs have been fixed and the code was made more readable:
