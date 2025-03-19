@@ -5,10 +5,13 @@ This project is a **modified version of Glyph Developer Kit by Nothing-Developer
 ## Why is it better?
 Numerous bugs have been fixed and the code was made more readable:
 -  Incorrect handling for Phone(2a) Plus which lead into GDK not working on that model
+-  Erroneous glyph mapping for Phone (3a) and Phone (3a) Pro
 -  `toggle` method now actually toggles off old frames: previously, frames were "summed" if you didn't call `getFrameBuilder` to create different frames
 -  `animate` method actually works now: all methods like `buildCycles` are now useful
 -  `turnOff` should be more reliable
 -  New `buildChannelC1` method to build Phone(2)'s variable Glyph in one go
+-  New `displayAnimation` method that takes a list of `GlyphFrame.Builder` object and displays them in sequence
+-  Improved `displayProgress` method with more customizations
 
 ## How to compile
 You will need:
