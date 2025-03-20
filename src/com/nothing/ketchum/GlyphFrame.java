@@ -138,7 +138,7 @@ public class GlyphFrame {
                 this.channel.set(Code_22111.A2, glyphLightIntensity);
             }
             else if(Common.isDevice23111(this.mDevice)) this.channel.set(Code_23111.A, glyphLightIntensity);
-            else if(Common.isDevice24111(this.mDevice)) setChannelValues(Code_24111.A_1, Code_24111.A_20, glyphLightIntensity);
+            else if(Common.isDevice24111(this.mDevice)) setChannelValues(Code_24111.A_1, Code_24111.A_11, glyphLightIntensity);
 
             return this;
         }
@@ -158,7 +158,7 @@ public class GlyphFrame {
             if(Common.isDevice20111(this.mDevice))this.channel.set(Code_20111.B1, glyphLightIntensity);
             else if(Common.isDevice22111(this.mDevice)) this.channel.set(Code_22111.B1, glyphLightIntensity);
             else if(Common.isDevice23111(this.mDevice)) this.channel.set(Code_23111.B, glyphLightIntensity);
-            else if(Common.isDevice24111(this.mDevice)) setChannelValues(Code_24111.B_1, Code_24111.B_11, glyphLightIntensity);
+            else if(Common.isDevice24111(this.mDevice)) setChannelValues(Code_24111.B_1, Code_24111.B_5, glyphLightIntensity);
 
             return this;
         }
@@ -178,7 +178,7 @@ public class GlyphFrame {
             if(Common.isDevice20111(this.mDevice)) setChannelValues(Code_20111.C1, Code_20111.C4, glyphLightIntensity);
             else if(Common.isDevice22111(this.mDevice)) setChannelValues(Code_22111.C1_1, Code_22111.C6, glyphLightIntensity);
             else if(Common.isDevice23111(this.mDevice)) setChannelValues(Code_23111.C_1, Code_23111.C_24, glyphLightIntensity);
-            else if(Common.isDevice24111(this.mDevice)) setChannelValues(Code_24111.C_1, Code_24111.C_5, glyphLightIntensity);
+            else if(Common.isDevice24111(this.mDevice)) setChannelValues(Code_24111.C_1, Code_24111.C_20, glyphLightIntensity);
 
             return this;
         }

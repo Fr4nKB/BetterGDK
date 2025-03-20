@@ -286,14 +286,14 @@ public class GlyphManager {
             if(Common.is20111()) tmp = IntStream.rangeClosed(Code_20111.D1_1, Code_20111.D1_8);
             else if(Common.is22111()) tmp = IntStream.rangeClosed(Code_22111.D1_1, Code_22111.D1_8);
             else if(Common.is23111()) tmp = IntStream.rangeClosed(Code_23111.C_1, Code_23111.C_24);
-            else if(Common.is24111()) tmp = IntStream.rangeClosed(Code_24111.A_1, Code_24111.A_20);
+            else if(Common.is24111()) tmp = IntStream.rangeClosed(Code_24111.C_1, Code_24111.C_20);
         }
         else if (channel == 1) {
             if(Common.is22111()) tmp = IntStream.rangeClosed(Code_22111.C1_1, Code_22111.C1_16);
-            else if(Common.is24111()) tmp = IntStream.rangeClosed(Code_24111.B_1, Code_24111.B_11);
+            else if(Common.is24111()) tmp = IntStream.rangeClosed(Code_24111.A_1, Code_24111.A_11);
         }
         else if(channel == 2) {
-            if(Common.is24111()) tmp = IntStream.rangeClosed(Code_24111.C_1, Code_24111.C_5);
+            if(Common.is24111()) tmp = IntStream.rangeClosed(Code_24111.B_1, Code_24111.B_5);
         }
 
         // Return an empty list if the stream is empty, otherwise collect to a list
@@ -344,8 +344,8 @@ public class GlyphManager {
                 throw new GlyphException("Please choose A_1, B_1 or C_1 while using display progress in 24111.");
             }
 
-            if(channel[Code_24111.A_1] != 0) return 0;
-            else if(channel[Code_24111.B_1] != 0) return 1;
+            if(channel[Code_24111.C_1] != 0) return 0;
+            else if(channel[Code_24111.A_1] != 0) return 1;
             else return 2;
         }
         else return -1;
@@ -377,7 +377,7 @@ public class GlyphManager {
         int light = getLight(frame);
         List<Integer> variableGlyphIndexes = getVariableGlyphIndexes(light);
         if(variableGlyphIndexes.isEmpty() || intensity <= 0 || progress <= 0 || duration <= 0 || duration < stepSize) {
-            return;
+        	throw new GlyphException("Please be sure to use valid.");
         }
         
         int sanitizedIntensity = Math.min(intensity, Common.MAX_GLYPH_INTENSITY - 1);
@@ -386,12 +386,11 @@ public class GlyphManager {
 
         int totalFrames = duration / sanitizedStepSize;
         int glyphIndexesSize = variableGlyphIndexes.size();
-        if(glyphIndexesSize == 0) return;
         int numFramesPerSubzone = totalFrames / glyphIndexesSize;
-        if(numFramesPerSubzone == 0) return;
+        if(numFramesPerSubzone == 0) throw new GlyphException("Duration or step size are too small.");
 
         int intensityVariationPerFrame = sanitizedIntensity / numFramesPerSubzone;
-        if(intensityVariationPerFrame == 0) return;
+        if(intensityVariationPerFrame == 0) throw new GlyphException("Glyph intensity is too low.");
 
         double progressPerSubzone = 100.0 / glyphIndexesSize;
         double highestReachableSubzoneIndexDouble = sanitizedProgress / progressPerSubzone;
