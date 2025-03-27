@@ -16,7 +16,7 @@ Numerous bugs have been fixed and the code was made more readable:
 ## How to compile
 You will need:
 -  A Java IDE, I'm using Eclipse
--  Android SDK (version 34)
+-  Android SDK (version 34+)
 
 Once you have imported the project, you need to add `AppData/Local/Android/Sdk/platforms/android-34/android.jar`
 in the classpath, **be sure not to have anything in the modulepath as it might conflict with Android's classes**.
@@ -25,3 +25,5 @@ In Eclipse you can then right click on the project -> Export -> Java -> JAR file
 
 ## Usage
 Just like Nothing's official GDK, place the package inside `app/libs` in your Android project and be sure to import the package in your dependencies.
+
+A ready-to-use package is available [here](https://github.com/Fr4nKB/BetterGDK/releases/latest).
