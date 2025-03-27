@@ -351,6 +351,23 @@ public class GlyphManager {
         else return -1;
     }
     
+    /**
+     * This method animates variable glyphs in order to show a progress animation.
+     * The animation can be customized in different ways, such as its progress direction, intensity, duration etc. 
+     *
+     * @param isRegressive Whether the animation should regress or progress (e.g. go from 100 to 0 or vice versa).
+     * @param frame The GlyphFrame object that which variable glyph to use, the first zone of the variable glyph must have a value > 0.
+     * @param progress The percentage progress of the animation (0-100).
+     * @param intensity The maximum intensity of the glyphs during the animation.
+     * @param duration The total duration of the animation in milliseconds.
+     * @param stepSize The time interval between each animation step in milliseconds.
+     * Set 1 to immediately display the final progress.
+     * @param durationAfterAnimation The delay before the glyphs turn off, after the animation is fully completed.
+     * Set to 0 to turn off immediately, -1 to display indefinitely.
+     * @param isReverse Whether the animation should be animated in the opposite direction.
+     * @param isToggle Whether each animation step should also display the non-animating glyphs part of the GlyphFrame object.
+     * @throws GlyphException Thrown when invalid parameters are provided or glyph-specific issues occur.
+     */
     private void displayVariableAnimation(
     		boolean isRegressive,
     		GlyphFrame frame,
@@ -360,7 +377,8 @@ public class GlyphManager {
     		int stepSize,
     		long durationAfterAnimation,
     		boolean isReverse,
-    		boolean isToggle) throws GlyphException {
+    		boolean isToggle
+    		) throws GlyphException {
     	if(!mHasAuthorized) {
     		Log.d(TAG, "Not registered");
     		return;
